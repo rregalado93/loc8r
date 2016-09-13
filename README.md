@@ -6,5 +6,23 @@ used the following documentation to install Bootstrap:
     
     https://www.youtube.com/watch?v=MqsiIp_M7lw
     
-    https://loc8r-rregalado.c9.io# loc8r
-# loc8r
+    
+PUSH TO GITHUB USING SCRIPT FILE
+    *create a github.sh file:
+        #!/bin/bash
+        # helpful: http://stackoverflow.com/questions/8482843/git-commit-bash-script
+
+        git add .
+        read -p "Commit description: " desc
+        git commit -m "$desc"
+        git push -u origin master
+        
+    *Run $ sudo chmod 775 github.sh
+    *to push to github run $ ./github.sh
+
+HOW TO RUN PROGRAM
+    *npm start
+    *go to https://loc8r-rregalado.c9users.io/
+
+PUSH TO HEROKU
+    *$ git push heroku master

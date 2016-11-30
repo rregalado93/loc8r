@@ -16,10 +16,20 @@ var theEarth = (function() {
   var getRadsFromDistance = function(distance) {
     return parseFloat(distance / earthRadius);
   };
+  
+  var mToKm = function(distance){
+    return parseFloat(distance / 1000);
+  };
+  
+  var kmToM = function(distance){
+    return parseFloat(distance * 1000);
+  };  
 
   return {
     getDistanceFromRads: getDistanceFromRads,
-    getRadsFromDistance: getRadsFromDistance
+    getRadsFromDistance: getRadsFromDistance,
+    kmToM : kmToM,
+    mToKm : mToKm
   };
 })();
 
@@ -34,7 +44,8 @@ module.exports.locationsListByDistance = function(req, res) {
   };
   var geoOptions = {
     spherical: true,
-    maxDistance: theEarth.getRadsFromDistance(maxDistance),
+    //maxDistance: theEarth.getRadsFromDistance(maxDistance),
+    maxDistance: theEarth.kmToM(maxDistance),
     num: 10
   };
   if (!lng || !lat || !maxDistance) {
@@ -57,7 +68,6 @@ module.exports.locationsListByDistance = function(req, res) {
     }
   });
 };
-
 var buildLocationList = function(req, res, results, stats) {
   var locations = [];
   results.forEach(function(doc) {

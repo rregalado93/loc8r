@@ -41,3 +41,9 @@ mongo ds011389.mlab.com:11389/loc8r -u ronaldr93 -p 72c084d218
 
 *Ensure Heroku uses production mode
 heroku config:set NODE_ENV=production
+
+*Adding the request module to our project
+npm install --save request
+
+
+

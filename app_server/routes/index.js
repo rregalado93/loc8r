@@ -3,12 +3,13 @@ var router = express.Router();
 var ctrlLocations = require('../controllers/location');
 var ctrlOthers = require('../controllers/others');
 
-/* Location pages */
-router.get('/', ctrlLocations.homelist);
-router.get('/location', ctrlLocations.locationInfo);
-router.get('/location/review/new', ctrlLocations.addReview);
+/* Locations pages */
+router.get('/', ctrlOthers.angularApp);
+router.get('/location/:locationid', ctrlLocations.locationInfo);
+router.get('/location/:locationid/review/new', ctrlLocations.addReview);
+router.post('/location/:locationid/review/new', ctrlLocations.doAddReview);
 
-/* Other Pages */
+/* Other pages */
 router.get('/about', ctrlOthers.about);
 
 module.exports = router;
